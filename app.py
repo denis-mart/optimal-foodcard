@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from optimal_foodcard import subset_sums
+#from optimal_foodcard import subset_sums
 
 app = Flask(__name__)
 
