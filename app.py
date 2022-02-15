@@ -10,6 +10,15 @@ def Home():
 @app.route("/predict", methods=['POST'])
 def predict():
     if request.method == 'POST':
+        return render_template('index.html',
+                                optimal_purchase1=f"1st Optimal purchase: uno",
+                                optimal_purchase2=f"2nd Optimal purchase: dos",
+                                optimal_purchase3=f"3rd Optimal purchase: tres"
+                                )
+
+
+def porsiaca():
+    if request.method == 'POST':
         # get the data from the html table
         list_prods = [request.form[f'prod0{i}'] for i in range(1,5)]
         list_prices = [float(request.form[f'price0{i}']) for i in range(1,5)]
@@ -24,8 +33,6 @@ def predict():
                                 )
     else:
         return render_template('index.html')
-
-
 
 if __name__=="__main__":
     app.run(debug=True)
