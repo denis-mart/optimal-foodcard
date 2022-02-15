@@ -3,17 +3,12 @@ from optimal_foodcard import subset_sums
 
 app = Flask(__name__)
 
-#@app.route('/',methods=['GET'])
-@app.route('/')
+@app.route('/',methods=['GET'])
 def Home():
     return render_template('index.html')
 
-
-
-def porsiaca1():
-    return render_template('index.html')
-
-def porsiaca2():
+@app.route("/predict", methods=['POST'])
+def predict():
     if request.method == 'POST':
         # get the data from the html table
         list_prods = [request.form[f'prod0{i}'] for i in range(1,5)]
@@ -29,6 +24,9 @@ def porsiaca2():
                                 )
     else:
         return render_template('index.html')
+
+
+
 
 if __name__=="__main__":
     app.run(debug=True)
