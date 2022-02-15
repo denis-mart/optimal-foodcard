@@ -1,0 +1,3 @@
+# Ignored files in Git
+.ipynb_checkpoints
+__pycache__
