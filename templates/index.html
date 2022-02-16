@@ -12,36 +12,19 @@
     <div style="color:rgb(0, 0, 0)">
         <form action="{{ url_for('predict')}}" method="post">
             <h2>Optimal foodcard analysis</h2>
-            <h3>Insert Product - Price</h3>
+            <h3>Insert Product Price</h3>
             <!-- create table of inputs -->
             <table name="tablita">
                 <tr>
-                    <td> <label for="product">Product</label> </td>
-                    <td> <label for="price">Price</label> </td>
+                    <td> <label for="product price">Write "Product Price" (without quotations, a blank space between them and add the items in different lines) </label> </td>
                 </tr>
                 <tr>
-                    <td> <input type="text" name="prod01"> </td>
-                    <td> <input type="text" name="price01"> </td>
-                    <!--<td><input type='button' class='AddNew' value='Add new item'></td> -->
+                    <td> <textarea name="product_price_list" rows="10" cols="50">{{ remember_input_text }}</textarea> </td>
                 </tr>   
-                <tr>
-                    <td> <input type="text" name="prod02"> </td>
-                    <td> <input type="text" name="price02"> </td>
-                </tr>                                        
-                <tr>
-                    <td> <input type="text" name="prod03"> </td>
-                    <td> <input type="text" name="price03"> </td>
-                </tr>
-                <tr>
-                    <td> <input type="text" name="prod04"> </td>
-                    <td> <input type="text" name="price04"> </td>
-                </tr>
                 
             </table>
 
-
-
-            <br><br><button id="sub" type="submit">Run</button>
+            <br><br><button id="sub" type="submit">Calculate</button>
 
 
         </form>

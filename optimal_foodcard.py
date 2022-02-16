@@ -32,7 +32,7 @@ def subset_sums(prods, prices, target=10, number_optimals=3):
    best_choice = [lst_posible_sets[i] for i in min_pos]
    products_best_choice = [[prods[i] for i in j] for j in best_choice]
    prices_best_choice = [[prices[i] for i in j] for j in best_choice]
-   min_sum_rounded = list(map(lambda x: round(x,2) , min_sum ))
+   min_sum_rounded = [round(i,2) for i in min_sum]
 
    #return best_choice, products_best_choice, prices_best_choice, min_sum_rounded
    
