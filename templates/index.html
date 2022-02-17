@@ -4,24 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Optimal foodcard calculator</title>
 </head>
 
-<body>
+<body style="background-color: black; color: rgb(226, 226, 226);">
 
-    <div style="color:rgb(0, 0, 0)">
+    <div>
         <form action="{{ url_for('predict')}}" method="post">
-            <h2>Optimal foodcard analysis</h2>
+            <h1 style="color:#00b786">Optimal foodcard calculator</h1>
             <h3>Insert Product Price</h3>
-            <!-- create table of inputs -->
+
+            Write "Product Price": without quotations, a blank space between them, add the items in different lines, no blank space within product name, point as a decimal separator.
+            <br> (Introduces more than two products)
+            <br><br>
+            <b>Correct example:</b>
+            <br>
+            Milk 8.9
+            <br>
+            Bread 2.5
+            <br>
+            Tortillapatatas 3.55
+            <br><br>
+            <b>Incorrect examples:</b>
+            <br>
+            Milk 8,5 (comma instead of point)
+            <br>
+            Bread2.5 (no blank space between product name and price)
+            <br>
+            Tortilla patatas 8.5 (blank space within product name)
+            <br>
+            <br><br>
+
+
             <table name="tablita">
                 <tr>
-                    <td> <label for="product price">Write "Product Price" (without quotations, a blank space between them and add the items in different lines) </label> </td>
-                </tr>
-                <tr>
-                    <td> <textarea name="product_price_list" rows="10" cols="50">{{ remember_input_text }}</textarea> </td>
+                    <td> <textarea name="product_price_list" rows="10" cols="25">{{ remember_input_text }}</textarea> </td>
                 </tr>   
-                
             </table>
 
             <br><br><button id="sub" type="submit">Calculate</button>
@@ -30,26 +48,13 @@
         </form>
 
         <br>
-        <h3>---- Optimal purchases ----<h3></h3>        
-        <h3>{{ optimal_purchase1 }}<h3>
-        <h3>{{ optimal_purchase2 }}<h3></h3>
-        <h3>{{ optimal_purchase3 }}<h3></h3>
+        <h2><b>Optimal purchases</b></h2>        
+        <h3>{{ optimal_purchase1 }}</h3>
+        <h3>{{ optimal_purchase2 }}</h3>
+        <h3>{{ optimal_purchase3 }}</h3>
     </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-        $('.AddNew').click(function() {
-        var row = $(this).closest('tr').clone();
-        row.find('input').val('');
-        $(this).closest('tr').after(row);
-        $('input[type="button"]', row).removeClass('AddNew').addClass('RemoveRow').val('Remove item');
-        });
-
-        $('table').on('click', '.RemoveRow', function() {
-        $(this).closest('tr').remove();
-        });
-    </script>
 
 </body>
 
