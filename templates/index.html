@@ -12,30 +12,43 @@
     <div>
         <form action="{{ url_for('predict')}}" method="post">
             <h1 style="color:#00b786">Optimal foodcard calculator</h1>
-            <h3>Insert Product Price</h3>
-
-            Write "Product Price": without quotations, a blank space between them, add the items in different lines, no blank space within product name, point as a decimal separator.
-            <br> (Introduces more than two products)
-            <br><br>
-            <b>Correct example:</b>
-            <br>
-            Milk 8.9
-            <br>
-            Bread 2.5
-            <br>
-            Tortillapatatas 3.55
-            <br><br>
-            <b>Incorrect examples:</b>
-            <br>
-            Milk 8,5 (comma instead of point)
-            <br>
-            Bread2.5 (no blank space between product name and price)
-            <br>
-            Tortilla patatas 8.5 (blank space within product name)
-            <br>
+            The tool is designed to help you to calculate the optimal purchases using a foodcard with 10EUR of balance.
+            The Ouput is the number of items you should buy to spend as close to 10EUR and always above.
             <br><br>
 
+            
+            <details>
+                <summary>
+                    instructions
+                </summary>
+                <h2>1. Input instructions:</h2>
 
+                Write "Product Price": without quotations, a blank space between them, add the items in different lines, no blank space within product name, point as a decimal separator.
+                <br> (Introduces more than two products)
+                <br><br>
+                <b>Correct example:</b>
+                <br>
+                Milk 8.9
+                <br>
+                Bread 2.5
+                <br>
+                Tortillapatatas 3.55
+                <br><br>
+                <b>Incorrect examples:</b>
+                <br>
+                Milk 8,5 (comma instead of point)
+                <br>
+                Bread2.5 (no blank space between product name and price)
+                <br>
+                Tortilla patatas 8.5 (blank space within product name)
+
+                <h2>2. Output interpretation:</h2>            
+                Optimal purchase: (Total cost, [('Product1', Price1), ('Product2', Price2), ...])
+                <br><br>
+
+            </details>
+
+            <h2>Insert input:</h2>                 
             <table name="tablita">
                 <tr>
                     <td> <textarea name="product_price_list" rows="10" cols="25">{{ remember_input_text }}</textarea> </td>
@@ -48,7 +61,7 @@
         </form>
 
         <br>
-        <h2><b>Optimal purchases</b></h2>        
+        <h2><b>Optimal purchases output:</b></h2>        
         <h3>{{ optimal_purchase1 }}</h3>
         <h3>{{ optimal_purchase2 }}</h3>
         <h3>{{ optimal_purchase3 }}</h3>
